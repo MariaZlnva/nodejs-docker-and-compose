@@ -48,8 +48,10 @@ export class UsersService {
 
   async create(createUserDto: CreateUserDto): Promise<User> {
     const { username, email, password } = createUserDto;
-    const isExist = await this.findOne({ username, email });
-    if (isExist) {
+    const exists = await this.usersRepository.exists({
+      where: [{ username }, { email }],
+    });
+    if (exists) {
       throw new ConflictException(
         'Пользователь с таким email или username уже зарегистрирован',
       );

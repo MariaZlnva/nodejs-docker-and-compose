@@ -6,6 +6,7 @@ import {
   IsUrl,
   Length,
   MinLength,
+  ValidateIf,
 } from 'class-validator';
 
 export class CreateUserDto {
@@ -14,6 +15,7 @@ export class CreateUserDto {
   username: string;
 
   @IsOptional()
+  @ValidateIf(o => o.about !== '')
   @Length(2, 200)
   @IsString()
   about: string;

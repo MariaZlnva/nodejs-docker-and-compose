@@ -1,0 +1,34 @@
+services:
+  backend:
+    container_name: kupi-backend
+    env_file: .env
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    image: kupi-backend
+    ports:
+      - 4000:3000
+    depends_on:
+      - postgres
+
+  frontend:
+    container_name: kupi-frontend
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    image: kupi-frontend
+    ports:
+      - 8081:3000
+
+  postgres:
+    container_name: postgres
+    image: postgres:alpine
+    env_file: .env
+    restart: always
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+

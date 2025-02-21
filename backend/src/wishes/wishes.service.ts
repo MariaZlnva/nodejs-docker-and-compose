@@ -132,6 +132,8 @@ export class WishesService {
   }
 
   async getLast(): Promise<Wish[]> {
+    console.log('synchronise=>', process.env.NODE_ENV === 'production' ? false : true)
+    console.log('NODE_ENV=>', process.env.NODE_ENV)
     const wishes = await this.wishesRepository.find({
       order: { createdAt: 'DESC' },
       skip: 0,
