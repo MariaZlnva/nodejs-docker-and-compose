@@ -2,9 +2,6 @@ services:
   backend:
     container_name: kupi-backend
     env_file: .env
-    build:
-      context: backend
-      dockerfile: Dockerfile
     image: zlnva/kupi-backend-opti:1.0.0
     ports:
       - 4000:3000
@@ -15,9 +12,6 @@ services:
       - internal
   frontend:
     container_name: kupi-frontend
-    build:
-      context: frontend
-      dockerfile: Dockerfile
     image: zlnva/kupi-frontend-opti:1.0.0
     ports:
       - 8081:80
