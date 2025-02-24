@@ -1,5 +1,6 @@
 
-export const URL = "http://localhost:4000";
+// export const URL = "http://localhost:4000";
+export const URL = "https://api.zlnva.nomorepartiessbs.ru";
 
 export const MINIMUM_PASSWORD_LENGTH = 3;
 export const MINIMUM_USERNAME_LENGTH = 3;

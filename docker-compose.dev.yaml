@@ -1,11 +1,11 @@
 services:
   backend:
     container_name: kupi-backend
-    env_file: .env
+    env_file: .env.developer
     build:
       context: backend
       dockerfile: Dockerfile
-    image: zlnva/kupi-backend-opti:1.0.0
+    image: zlnva/kupi-backend-dev
     ports:
       - 4000:3001
     depends_on:
@@ -18,7 +18,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    image: zlnva/kupi-frontend-opti:1.0.1
+    image: zlnva/kupi-frontend-dev
     ports:
       - 8081:80
     networks: 
@@ -27,7 +27,7 @@ services:
   postgres:
     container_name: postgres
     image: postgres:alpine
-    env_file: .env
+    env_file: .env.developer
     restart: always
     volumes:
       - postgres_data:/data/postgres

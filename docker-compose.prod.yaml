@@ -4,7 +4,7 @@ services:
     env_file: .env
     image: zlnva/kupi-backend-opti:1.0.0
     ports:
-      - 4000:3000
+      - 4000:3001
     depends_on:
       - postgres
     restart: always
@@ -12,7 +12,7 @@ services:
       - internal
   frontend:
     container_name: kupi-frontend
-    image: zlnva/kupi-frontend-opti:1.0.0
+    image: zlnva/kupi-frontend-opti:1.0.1
     ports:
       - 8081:80
     networks: 
@@ -42,7 +42,6 @@ volumes:
 
 networks:
   internal:
-    # driver: bridge
   external:
 
 
