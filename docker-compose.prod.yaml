@@ -42,6 +42,7 @@ volumes:
 
 networks:
   internal:
+    # driver: bridge
   external:
 
 
